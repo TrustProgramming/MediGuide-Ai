@@ -1,4 +1,4 @@
-# MediGuide
+# MediGuide Ai
 
 MediGuide is a healthcare navigation web application. A patient describes what
 they are feeling in their own words, and MediGuide helps them work out what kind
