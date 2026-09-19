@@ -1,0 +1,282 @@
+{
+  "https://www.nhs.uk/conditions/allergies/": {
+    "chunks": 5,
+    "document_hash": "89780225f29afb06f74ef7facb12d0c7902e145f365ddd6b279e4c341cc99aa4",
+    "document_id": "doc-b8928579dd584349",
+    "ingested_at": "2026-09-17T21:47:53.710355+00:00",
+    "source": "NHS",
+    "title": "Allergies"
+  },
+  "https://www.nhs.uk/conditions/anaphylaxis/": {
+    "chunks": 6,
+    "document_hash": "1bcf0e6558e900243521112f9b61a72bb384b9b27f1e3e62ccf8322d4bc3058a",
+    "document_id": "doc-11028f3598f2b255",
+    "ingested_at": "2026-09-17T21:47:55.875517+00:00",
+    "source": "NHS",
+    "title": "Anaphylaxis"
+  },
+  "https://www.nhs.uk/conditions/back-pain/": {
+    "chunks": 5,
+    "document_hash": "ebb37143c61ee8d2b2a3820cdd30b93fcd6aaa338708e0d5d57609c517752cba",
+    "document_id": "doc-87501284b4c88454",
+    "ingested_at": "2026-09-17T21:47:49.106428+00:00",
+    "source": "NHS",
+    "title": "Back pain"
+  },
+  "https://www.nhs.uk/conditions/chest-pain/": {
+    "chunks": 3,
+    "document_hash": "03b729d89f009d2ed19832b074d6b92e5970994d82276885a1cd30e5d4e6be3a",
+    "document_id": "doc-b78621184e994e8c",
+    "ingested_at": "2026-09-17T21:47:11.159852+00:00",
+    "source": "NHS",
+    "title": "Chest pain"
+  },
+  "https://www.nhs.uk/conditions/conjunctivitis/": {
+    "chunks": 4,
+    "document_hash": "82825e9a4a722de33f34d2013c6e38b64cf4bce6b8abbde67a12ead28b58dd04",
+    "document_id": "doc-83e2f96e54cf836d",
+    "ingested_at": "2026-09-17T21:49:49.177470+00:00",
+    "source": "NHS",
+    "title": "Conjunctivitis"
+  },
+  "https://www.nhs.uk/conditions/cough/": {
+    "chunks": 4,
+    "document_hash": "76b747c1ea8e3d4b0c8c7c6ad355823d37060db95fd9074ad1c6ecfc47c0da73",
+    "document_id": "doc-2e53a9c5913d279c",
+    "ingested_at": "2026-09-17T21:47:38.096638+00:00",
+    "source": "NHS",
+    "title": "Cough"
+  },
+  "https://www.nhs.uk/conditions/diarrhoea-and-vomiting/": {
+    "chunks": 6,
+    "document_hash": "75cd7d74f8239521bc17ee7643873682bf8fd8b998aad4b2f7cfa0741fcb43b2",
+    "document_id": "doc-28e808e20e88a96a",
+    "ingested_at": "2026-09-17T21:47:19.598171+00:00",
+    "source": "NHS",
+    "title": "Diarrhoea and vomiting"
+  },
+  "https://www.nhs.uk/conditions/headaches/": {
+    "chunks": 3,
+    "document_hash": "b24957e28a5382c1238a3c40647f01ebb0b7fc28b52c7d95dfa54aad0e527b40",
+    "document_id": "doc-11cee277465198ef",
+    "ingested_at": "2026-09-17T21:47:06.702002+00:00",
+    "source": "NHS",
+    "title": "Headaches"
+  },
+  "https://www.nhs.uk/conditions/heart-attack/": {
+    "chunks": 7,
+    "document_hash": "54466aa4995beaea2584444ea49c032a53179feefaa2b9cb417e6bb9d0c34144",
+    "document_id": "doc-e440f516c85d4ce2",
+    "ingested_at": "2026-09-17T21:47:13.435071+00:00",
+    "source": "NHS",
+    "title": "Heart attack"
+  },
+  "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/": {
+    "chunks": 5,
+    "document_hash": "6782cd0b5018fdb99415aa9f13cbf68b7893cb9bf71b2daa2a2e5c49828b59be",
+    "document_id": "doc-a856fc16e3d473f1",
+    "ingested_at": "2026-09-17T21:47:21.648457+00:00",
+    "source": "NHS",
+    "title": "Heartburn and acid reflux"
+  },
+  "https://www.nhs.uk/conditions/insomnia/": {
+    "chunks": 5,
+    "document_hash": "16cd3edc6ef9de0066c2c5bea5b65f8a3deaacb712edab91805951e71954f27b",
+    "document_id": "doc-dfa190845399c40b",
+    "ingested_at": "2026-09-17T21:47:47.057229+00:00",
+    "source": "NHS",
+    "title": "Insomnia"
+  },
+  "https://www.nhs.uk/conditions/kidney-stones/": {
+    "chunks": 3,
+    "document_hash": "77467af9c61f562aca6c3f0c0541d13f71059769e7f0f4fd24dc4c67a67bc3db",
+    "document_id": "doc-8fb7f19212b26813",
+    "ingested_at": "2026-09-17T21:47:35.668571+00:00",
+    "source": "NHS",
+    "title": "Kidney stones"
+  },
+  "https://www.nhs.uk/conditions/migraine/": {
+    "chunks": 7,
+    "document_hash": "c3384aa19dcee79e4dbf00be00f144b3cfe9e761736edef3bac0446423565adf",
+    "document_id": "doc-0eedc0b32b6292ab",
+    "ingested_at": "2026-09-17T21:47:08.952027+00:00",
+    "source": "NHS",
+    "title": "Migraine"
+  },
+  "https://www.nhs.uk/conditions/rashes-babies-and-children/": {
+    "chunks": 73,
+    "document_hash": "e41a2019753f52bc2eee8316ec7fb5e83e94fd0130adafe83c39cdcc6d33ca08",
+    "document_id": "doc-a27e15e1c3be5dd6",
+    "ingested_at": "2026-09-17T21:47:31.131552+00:00",
+    "source": "NHS",
+    "title": "Rashes in babies and children"
+  },
+  "https://www.nhs.uk/conditions/shortness-of-breath/": {
+    "chunks": 4,
+    "document_hash": "0e05bac3224e3d7397b243e00384a6be858cf5d7fb9244413564ecc6070bfd7e",
+    "document_id": "doc-a903f431bb498c65",
+    "ingested_at": "2026-09-17T21:47:42.850970+00:00",
+    "source": "NHS",
+    "title": "Shortness of breath"
+  },
+  "https://www.nhs.uk/conditions/sore-throat/": {
+    "chunks": 4,
+    "document_hash": "d86fb381d4d036b3e83b3212ea494e9cbf8338a8792bc0f57f4a2ebb650589ac",
+    "document_id": "doc-00d4c808d977e30e",
+    "ingested_at": "2026-09-17T21:47:40.516158+00:00",
+    "source": "NHS",
+    "title": "Sore throat"
+  },
+  "https://www.nhs.uk/conditions/sprains-and-strains/": {
+    "chunks": 5,
+    "document_hash": "780c2e24fca079a557d5d6b293578f64d90bad54af1472cf76924bee3e798dd8",
+    "document_id": "doc-467ae4817adce27f",
+    "ingested_at": "2026-09-17T21:47:51.090893+00:00",
+    "source": "NHS",
+    "title": "Sprains and strains"
+  },
+  "https://www.nhs.uk/conditions/stomach-ache/": {
+    "chunks": 3,
+    "document_hash": "caf87df021744f60eb234c8237fbd609033c95c6b4907af5674b643a045d81af",
+    "document_id": "doc-b7998c6e4f767c50",
+    "ingested_at": "2026-09-17T21:47:16.883519+00:00",
+    "source": "NHS",
+    "title": "Stomach ache"
+  },
+  "https://www.nhs.uk/conditions/stroke/symptoms/": {
+    "chunks": 2,
+    "document_hash": "62c24076df488d9f4b0ad341540465055cdc70a411baa58db00a23b373e78ef8",
+    "document_id": "doc-1cb1a6945c6d07bc",
+    "ingested_at": "2026-09-17T21:52:07.901567+00:00",
+    "source": "NHS",
+    "title": "Stroke: symptoms"
+  },
+  "https://www.nhs.uk/conditions/transient-ischaemic-attack-tia/": {
+    "chunks": 5,
+    "document_hash": "d2643aba7656b2716ddf02a8124c72a90555d497d9b1ef1d1c02e4a6dcb8e287",
+    "document_id": "doc-3ad382250738cf21",
+    "ingested_at": "2026-09-17T21:52:09.941332+00:00",
+    "source": "NHS",
+    "title": "Transient ischaemic attack (TIA)"
+  },
+  "https://www.nhs.uk/conditions/urinary-tract-infections-utis/": {
+    "chunks": 9,
+    "document_hash": "800e1aedf05ac69856d0819a3480b8adecec4a9d724522aeb88d52ebcfb17da2",
+    "document_id": "doc-8576d5316f37ffe6",
+    "ingested_at": "2026-09-17T21:47:33.737345+00:00",
+    "source": "NHS",
+    "title": "Urinary tract infections (UTIs)"
+  },
+  "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/": {
+    "chunks": 7,
+    "document_hash": "a88ea0244629ab6cc93f9d22bccf41ad1eee533aae7aae139d500cc22b2ecf12",
+    "document_id": "doc-5d51a99839f4cf63",
+    "ingested_at": "2026-09-17T21:47:45.058890+00:00",
+    "source": "NHS",
+    "title": "Anxiety, fear and panic"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/anaemia": {
+    "chunks": 12,
+    "document_hash": "8beefc2f15dfd2fb66c54fdaf4d45404025fdafa25f2acce77efac0340c7c1bf",
+    "document_id": "doc-a0e52685901e3bf2",
+    "ingested_at": "2026-09-17T21:46:58.458152+00:00",
+    "source": "WHO",
+    "title": "Anaemia"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/asthma": {
+    "chunks": 11,
+    "document_hash": "27296a6b7ac742538afcd0ae0ca2a14f38599bc4398bc2b60cd4cb963f808286",
+    "document_id": "doc-b553eaf11f1d1b1f",
+    "ingested_at": "2026-09-17T21:46:39.545902+00:00",
+    "source": "WHO",
+    "title": "Asthma"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)": {
+    "chunks": 12,
+    "document_hash": "54577d56d178899ef2641de4a976b91c0c2e070890f6af3a59e78d57fab5806d",
+    "document_id": "doc-e4b47704d2e72ce0",
+    "ingested_at": "2026-09-17T21:46:31.179186+00:00",
+    "source": "WHO",
+    "title": "Cardiovascular diseases (CVDs)"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/depression": {
+    "chunks": 11,
+    "document_hash": "8c16031cd6ef19d90986d5f6d78fdf979bb1c0f66c2c13603ca7b1151fff5e87",
+    "document_id": "doc-277435e52facc9e4",
+    "ingested_at": "2026-09-17T21:46:42.003039+00:00",
+    "source": "WHO",
+    "title": "Depression"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/diabetes": {
+    "chunks": 10,
+    "document_hash": "bbefd03b17841421dee3f7054ec1088d5944035d70b69979ecde42a41218917f",
+    "document_id": "doc-87b3e62f4b618eb1",
+    "ingested_at": "2026-09-17T21:46:36.791108+00:00",
+    "source": "WHO",
+    "title": "Diabetes"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease": {
+    "chunks": 10,
+    "document_hash": "c08513a7d5d5b85da704c1fcdbdd6bcb63ce143e84da8cdee9731a789a413ea0",
+    "document_id": "doc-c901b66808034146",
+    "ingested_at": "2026-09-17T21:46:47.946562+00:00",
+    "source": "WHO",
+    "title": "Diarrhoeal disease"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/epilepsy": {
+    "chunks": 15,
+    "document_hash": "d4f954ed14675ecee42e139575cf24412ce50d8b6c06ef87083b95e6002394ba",
+    "document_id": "doc-64e2a26083413e87",
+    "ingested_at": "2026-09-17T21:49:32.746943+00:00",
+    "source": "WHO",
+    "title": "Epilepsy"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/food-safety": {
+    "chunks": 20,
+    "document_hash": "72e1f52687959f7a81bcd812a25019577750c4ac357945c6a3810f0d54297993",
+    "document_id": "doc-b530ecad39519341",
+    "ingested_at": "2026-09-17T21:46:51.779679+00:00",
+    "source": "WHO",
+    "title": "Food safety"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/headache-disorders": {
+    "chunks": 13,
+    "document_hash": "2ca50ead7c77fb8246887cbbd7c380ff341ed9f364130be178c17a3ed045aa51",
+    "document_id": "doc-082ea95c377df294",
+    "ingested_at": "2026-09-17T21:46:45.253619+00:00",
+    "source": "WHO",
+    "title": "Headache disorders"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/hypertension": {
+    "chunks": 12,
+    "document_hash": "86f3cbb19bb78324b8337d623f306b9705facd70b7371b8b9e8db32ed98ce4f4",
+    "document_id": "doc-ba352e692ea0e3d2",
+    "ingested_at": "2026-09-17T21:46:34.139516+00:00",
+    "source": "WHO",
+    "title": "Hypertension"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)": {
+    "chunks": 13,
+    "document_hash": "004e895c8863c371749088434ce6f67e4bbc816de476a24ae198f2d8ec26fc08",
+    "document_id": "doc-119fd6fa5e357b52",
+    "ingested_at": "2026-09-17T21:47:04.255836+00:00",
+    "source": "WHO",
+    "title": "Influenza (Seasonal)"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight": {
+    "chunks": 19,
+    "document_hash": "5afca791e313bcf2ef142dbd454777abaf6d193ab636920031d7be06e5d6b407",
+    "document_id": "doc-1460746d6565a39a",
+    "ingested_at": "2026-09-17T21:49:36.279394+00:00",
+    "source": "WHO",
+    "title": "Obesity and overweight"
+  },
+  "https://www.who.int/news-room/fact-sheets/detail/tuberculosis": {
+    "chunks": 14,
+    "document_hash": "2327124efed226af83fc1ae050cf6e58ca25dedf0fb3de71fb5712a1a2a763a2",
+    "document_id": "doc-64be06f9085600f2",
+    "ingested_at": "2026-09-17T21:47:01.349009+00:00",
+    "source": "WHO",
+    "title": "Tuberculosis"
+  }
+}

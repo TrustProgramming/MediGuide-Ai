@@ -1,0 +1,21 @@
+fastapi==0.115.0
+uvicorn==0.30.6
+PyJWT==2.9.0
+# Imported dynamically (importlib) so the app still starts when browsers are absent.
+playwright==1.48.0
+cryptography==43.0.1
+stripe==11.1.0
+# Vector store for the RAG pipeline. 1.5.9 ships cp39-abi3 wheels (works on
+# Python 3.13/3.14) and bundles the local MiniLM ONNX embedder, so retrieval
+# needs no API key. The app degrades to its in-process TF-IDF index if absent.
+chromadb==1.5.9
+
+# Relational storage. SQLite by default, PostgreSQL via DATABASE_URL.
+SQLAlchemy==2.0.54
+alembic==1.20.0
+
+# Cal.com notification path.
+requests==2.32.3
+# Windows ships no system timezone database, so zoneinfo needs this to resolve
+# clinic timezones such as Asia/Karachi when converting slots to UTC.
+tzdata==2025.2

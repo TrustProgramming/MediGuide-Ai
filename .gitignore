@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+*.log
+
+# machine-local generated app secret
+python_backend/data/.mediguide-secret
+*.db-wal
+*.db-shm

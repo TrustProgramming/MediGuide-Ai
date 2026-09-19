@@ -1,0 +1,322 @@
+MEDIGUIDE AI
+RAG, MODELS, AGENTS, AND EVALUATION
+
+Purpose
+-------
+MediGuide AI is a health-information and specialist-routing website. It does not diagnose diseases and it does not replace a doctor or emergency services.
+
+The system gives general precautions, asks follow-up questions, detects possible emergencies, and recommends an appropriate type of specialist.
+
+
+WHERE THE RAG DOCUMENTS ARE
+---------------------------
+The RAG knowledge documents are stored in:
+
+backend/knowledgeBase.mjs
+
+There are 11 hand-written knowledge documents. They cover:
+
+1. Headache and migraine symptoms
+2. Severe or sudden neurological symptoms
+3. Digestive symptoms
+4. Skin irritation and rash
+5. Stress, anxiety, and sleep concerns
+6. Possible cardiac or emergency symptoms
+7. Joint, muscle, and injury symptoms
+8. Cold, flu, and throat symptoms
+9. Eye discomfort and vision symptoms
+10. Allergy symptoms
+11. General health concerns
+
+The saved vector index is stored in:
+
+backend/data/vector-index.json
+
+The RAG retrieval code is stored in:
+
+backend/db/vectorStore.mjs
+
+The retriever uses TF-IDF word vectors and cosine similarity. It is a small local vector search system. It does not use Pinecone, Chroma, OpenAI embeddings, or another cloud vector service.
+
+
+RAG CHUNKING AND DOCUMENT SIZE
+------------------------------
+This project does not split the knowledge documents into smaller paragraph or token chunks.
+
+Chunking strategy:
+- Number of chunks: 11
+- Number of source documents: 11
+- Chunks per document: 1
+- Chunk overlap: 0
+- Chunk size limit: no fixed token or character limit
+- One vector is created for each complete knowledge document
+
+Current searchable text word counts:
+- Smallest searchable text: 10 words
+- Largest searchable text: 16 words
+- Average searchable text: approximately 13 words
+- The 11 searchable texts contain 140 words in total
+
+These word counts describe the short `text` field used for retrieval. The precautions and metadata remain attached to the same document; they are not split into separate chunks.
+
+Each knowledge document is intentionally short. Its searchable text is normally one sentence containing the important symptom keywords. Its precautions and metadata stay attached to the same document object.
+
+Why this size was chosen:
+- The knowledge base is small and hand-written.
+- Each topic is already a compact unit, such as “Digestive symptoms” or “Allergy symptoms”.
+- Keeping one topic as one chunk prevents a precaution from being separated from its topic and specialist.
+- Overlap is not needed because no topic is divided across chunk boundaries.
+- The local TF-IDF index is small enough to search all 11 documents quickly.
+- There is no long medical article that requires paragraph-level chunking in the current dataset.
+
+Why there is no overlap:
+- Overlap is useful when a long document is divided into neighboring pieces and important text might fall at a boundary.
+- This project does not create neighboring pieces. Each topic is stored as one complete piece.
+- Adding overlap here would duplicate words, increase similarity noise, and provide no additional context.
+
+Important limitation:
+If long medical documents are added later, this one-document-one-chunk design may become less accurate. Those documents should then be split into smaller sections with a documented chunk size and overlap, and the RAG benchmark should be expanded.
+
+How retrieval works:
+1. The user message is converted to lowercase words.
+2. Common stop words are removed.
+3. TF-IDF weights are calculated for the document words and the user query.
+4. Cosine similarity compares the query with every document vector.
+5. The highest-scoring document is returned.
+
+The RAG fallback is used when the symptom classifier does not reach its confidence threshold. The classifier threshold is 0.12. The RAG fallback requires a cosine similarity score greater than 0.05.
+
+
+MODELS USED
+-----------
+
+1. Weighted symptom classifier
+
+File:
+backend/diseaseModel.mjs
+
+This model reads symptoms, compares them with disease symptom patterns, and recommends a specialist category. It is a dependency-free weighted symptom-overlap model.
+
+Training data files:
+backend/data/medical/Training.csv
+backend/data/medical/symptom_Description.csv
+backend/data/medical/symptom_precaution.csv
+backend/data/medical/Symptom_severity.csv
+
+Dataset size:
+- 4,920 labelled records
+- 41 diseases
+- 132 symptoms
+
+The model is used mainly for symptoms covered by the training dataset.
+
+2. TF-IDF knowledge retriever
+
+Files:
+backend/db/vectorStore.mjs
+backend/knowledgeBase.mjs
+
+This is the RAG retrieval model. It finds the most similar hand-written knowledge document for a user's message.
+
+3. Generative language model
+
+No generative AI language model is used by this website. The response text is produced by application code, follow-up templates, dataset precautions, and retrieved knowledge-base precautions.
+
+
+AGENTS USED
+-----------
+
+1. QA Agent
+
+File:
+backend/agents/qaAgent.mjs
+
+Responsibilities:
+- Detect possible emergency symptoms
+- Remember symptoms across chat turns
+- Ask about duration, severity, related symptoms, and medical history
+- Use the symptom classifier
+- Use the RAG knowledge base as a fallback
+- Recommend a specialist
+- Provide general precautions
+- Avoid telling the patient a predicted disease diagnosis
+
+2. Appointment Agent
+
+File:
+backend/agents/appointmentAgent.mjs
+
+Responsibilities:
+- Validate the selected specialist
+- Validate the appointment date and time
+- Reject past dates
+- Limit appointments to the allowed booking window
+- Prepare the booking request
+- Require explicit patient confirmation before booking
+
+3. Chat History Agent
+
+File:
+backend/agents/chatHistoryAgent.mjs
+
+Responsibilities:
+- Save chat context
+- Read saved chat context
+- Restore disease and specialist context for older conversations
+- Use the symptom classifier when context is missing
+
+4. Medical Information Agent
+
+File:
+backend/agents/medicalInformationAgent.mjs
+
+Responsibilities:
+- Save patient medical information
+- Encrypt medical information using AES-256-GCM
+- Decrypt it when the patient views it
+- Return an empty safe structure if stored data cannot be decrypted
+
+
+HOW TO RUN THE EVALUATION
+-------------------------
+From the project root, run:
+
+npm run evaluate:rag
+
+The evaluation program is:
+
+backend/ragEvaluation.mjs
+
+The generated report is:
+
+backend/data/rag-evaluation-report.json
+
+The report contains the model inventory, agent inventory, held-out classifier metrics, RAG retrieval metrics, grounding checks, confusion matrix, and limitations.
+
+
+MODEL AND AGENT ACCURACY SUMMARY
+--------------------------------
+
+Model accuracy:
+- Weighted symptom classifier top-1 accuracy: 98.78% on 984 held-out records
+- Weighted symptom classifier top-3 accuracy: 100.00% on 984 held-out records
+- Weighted symptom classifier macro precision: 99.02%
+- Weighted symptom classifier macro recall: 98.78%
+- Weighted symptom classifier macro F1: 98.76%
+- TF-IDF RAG retriever top-1 accuracy: 90.91% (10 correct out of 11 benchmark questions)
+- RAG source-linkage grounding score: 100%
+
+Agent evaluation accuracy:
+- QA Agent: 3 of 3 focused checks passed (100%)
+- Appointment Agent: 3 of 3 focused checks passed (100%)
+- Combined executable agent checks: 6 of 6 passed (100%)
+- Chat History Agent: no standalone percentage; it depends on the classifier and database persistence and needs an isolated integration benchmark
+- Medical Information Agent: no standalone percentage; its AES-256-GCM persistence needs an isolated encryption and database benchmark
+
+The agent percentages are contract-test pass rates, not medical accuracy. They confirm that selected safety and workflow behaviors work for the test cases. They do not prove that every possible user message will be handled correctly.
+
+During evaluation, the Appointment Agent exposed and then received a timezone date-validation fix. Valid local dates were incorrectly rejected in Pakistan Standard Time because the old check compared local midnight with a UTC date. The validator now compares local calendar components.
+
+
+CLASSIFIER EVALUATION
+---------------------
+The evaluation creates a deterministic stratified 80/20 split:
+
+- Training records: 3,936
+- Held-out test records: 984
+
+The held-out records are not used to build the evaluation profiles.
+
+Current results:
+
+- Top-1 accuracy: 98.78%
+- Top-3 accuracy: 100.00%
+- Macro precision: 99.02%
+- Macro recall: 98.78%
+- Macro F1 score: 98.76%
+- Confusion matrix: included in backend/data/rag-evaluation-report.json
+
+These results are based on a public teaching dataset. They do not prove clinical accuracy or safety with real patients.
+
+The earlier in-sample check was 99.15% top-1 and 100% top-3. That result was not used as the main accuracy result because it evaluated records against profiles built from those same records. The held-out results above are more meaningful, although they still use the same public teaching dataset.
+
+
+RAG EVALUATION
+--------------
+The evaluation contains 11 repository-owned test questions, one for each knowledge document.
+
+Current result:
+
+- Correct top-1 retrieval: 10 of 11
+- RAG top-1 retrieval accuracy: 90.91%
+
+RAG benchmark details:
+- Test cases: 11
+- Correct retrievals: 10
+- Incorrect retrievals: 1
+- Retrieval metric: top-1 accuracy
+- Top-k retrieval used by the application: top 1 document for the QA fallback
+- Current known error: an allergy query can be retrieved as a skin-rash document because both topics use words such as itching and swelling.
+
+The evaluation also checks answer-source linkage. This means it checks whether the precautions returned to the user came from the retrieved document metadata.
+
+- Source-linkage grounding score: 100%
+
+This grounding score does not prove that the medical advice is factually correct. It only proves that the returned precautions are linked to the selected knowledge document.
+
+One known retrieval weakness is that an allergy query can be confused with the skin-rash document because both documents contain words such as itching and swelling.
+
+
+AGENT EVALUATION
+----------------
+The evaluation includes executable checks for the agents:
+
+QA Agent:
+- Emergency chest-pain and breathing symptoms produce urgent escalation
+- Emergency symptoms route to Cardiology and Emergency
+- The patient-facing response does not state a disease diagnosis
+
+Appointment Agent:
+- A valid future booking is accepted
+- A booking without patient confirmation is rejected
+- A booking with explicit confirmation is accepted
+
+Chat History Agent:
+- Uses the weighted symptom classifier when historical context is missing
+- Persistence is implemented through the database context functions
+- A full isolated database integration test is still recommended
+
+Medical Information Agent:
+- Uses AES-256-GCM encryption and decryption
+- A full isolated persistence and encryption test is still recommended
+
+The pass/fail details are stored in:
+
+backend/data/rag-evaluation-report.json
+
+
+WHAT IS NOT CLAIMED
+-------------------
+The project does not claim:
+
+- Clinical-grade diagnosis
+- Clinical validation by doctors
+- A medical trial
+- Accuracy on all real-world patient language
+- Accuracy for diseases outside the training data
+- A calibrated probability from the confidence score
+- That the RAG grounding score proves medical truth
+
+Clinical validation status: NOT PERFORMED.
+
+Clinical validation would require clinician-reviewed test cases, a defined safety protocol, privacy controls, and formal review by qualified medical professionals. The current repository does not contain that validation.
+
+
+IMPORTANT LIMITATIONS
+---------------------
+- Mental health and some general health topics are handled by the hand-written RAG fallback because the disease dataset does not cover them well.
+- The classifier maps diseases to available specialist categories by application rules.
+- The public teaching dataset may not represent real patients.
+- The RAG test questions were written for this repository and are not an independent medical benchmark.
+- The application provides routing and general precautions, not diagnosis.
+- Emergency symptoms should be handled by local emergency services, not an online appointment.
