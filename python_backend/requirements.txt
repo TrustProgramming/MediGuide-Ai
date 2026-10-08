@@ -5,10 +5,8 @@ PyJWT==2.9.0
 playwright==1.48.0
 cryptography==43.0.1
 stripe==11.1.0
-# Vector store for the RAG pipeline. 1.5.9 ships cp39-abi3 wheels (works on
-# Python 3.13/3.14) and bundles the local MiniLM ONNX embedder, so retrieval
-# needs no API key. The app degrades to its in-process TF-IDF index if absent.
-chromadb==1.5.9
+# Optional local vector store. Omitted from the serverless bundle; the app uses
+# its curated in-memory RAG index when ChromaDB is unavailable.
 
 # Relational storage. SQLite by default, PostgreSQL via DATABASE_URL.
 SQLAlchemy==2.0.54
