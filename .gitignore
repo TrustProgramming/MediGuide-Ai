@@ -1,9 +1,16 @@
-node_modules
-dist
-.env
-*.log
+# Final deployment-safe ignore file
+.venv/
+__pycache__/
+.pytest_cache/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
 
-# machine-local generated app secret
-python_backend/data/.mediguide-secret
+tests/
+Medical Datasets/
+python_backend/data/medical/
+python_backend/data/chroma/
 *.db-wal
 *.db-shm
