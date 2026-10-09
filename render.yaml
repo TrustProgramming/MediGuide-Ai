@@ -1,0 +1,21 @@
+# Render Blueprint for the MediGuide Python backend.
+# Deploy: https://render.com/deploy?repo=https://github.com/TrustProgramming/MediGuide-Ai
+# Netlify (super-froyo-105be1.netlify.app) proxies every request to this service
+# once its URL is stored in the Netlify BACKEND_URL environment variable.
+services:
+  - type: web
+    name: mediguide-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r python_backend/requirements.txt
+    startCommand: python -m alembic upgrade head && python -m uvicorn python_backend.app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips="*"
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: PYTHONPATH
+        value: .
+      - key: MEDIGUIDE_SECRET
+        generateValue: true
+      - key: APP_BASE_URL
+        value: https://super-froyo-105be1.netlify.app

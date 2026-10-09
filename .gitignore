@@ -14,3 +14,6 @@ python_backend/data/medical/
 python_backend/data/chroma/
 *.db-wal
 *.db-shm
+
+# Local Netlify folder
+.netlify

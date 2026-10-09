@@ -1,0 +1,6 @@
+# MediGuide is a Python (FastAPI) server, which Netlify cannot run directly.
+# The backend runs on Render (see render.yaml); the edge function
+# (netlify/edge-functions/proxy.ts) forwards every request on this site to the
+# URL in the BACKEND_URL environment variable.
+[build]
+  publish = "public"
