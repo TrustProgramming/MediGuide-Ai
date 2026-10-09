@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediGuide – setup required</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f4f8f7; color: #16302b; margin: 0; display: grid; place-items: center; min-height: 100vh; }
+    main { max-width: 36rem; padding: 2rem; }
+    code { background: #e3ecea; padding: .1rem .35rem; border-radius: 4px; }
+    a.button { display: inline-block; background: #1f7a68; color: #fff; padding: .7rem 1.1rem; border-radius: 8px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>MediGuide backend not connected yet</h1>
+    <p>MediGuide runs as a Python server. Netlify forwards this site to it once it is deployed.</p>
+    <ol>
+      <li><a class="button" href="https://render.com/deploy?repo=https://github.com/TrustProgramming/MediGuide-Ai">Deploy the backend to Render</a></li>
+      <li>Copy the service URL (for example <code>https://mediguide-backend.onrender.com</code>).</li>
+      <li>In Netlify, add the environment variable <code>BACKEND_URL</code> with that URL and redeploy.</li>
+    </ol>
+  </main>
+</body>
+</html>
